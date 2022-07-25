@@ -1,16 +1,12 @@
-let Moisture = 0
-input.onButtonPressed(Button.A, function () {
-    servos.P0.run(55)
-})
-input.onButtonPressed(Button.B, function () {
-    Moisture = pins.analogReadPin(AnalogPin.P2)
-    basic.showString("" + Moisture)
-})
-basic.forever(function () {
-    Moisture = pins.analogReadPin(AnalogPin.P2)
+let distance = 0
+basic.forever(function on_forever() {
+    let Moisture = pins.analogReadPin(AnalogPin.P2)
+    let distance = grove.measureInCentimetersV2(DigitalPin.P0)
+    basic.showNumber(distance)
     if (Moisture < 10) {
         pins.digitalWritePin(DigitalPin.P1, 1)
-        basic.pause(1000)
+    } else {
         pins.digitalWritePin(DigitalPin.P1, 0)
     }
+    
 })
