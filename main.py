@@ -18,10 +18,10 @@ def on_forever():
                 pins.digital_write_pin(DigitalPin.P1, 1)
             else:
                 pins.digital_write_pin(DigitalPin.P1, 0)
-            if distance2 < 2.1:
-                basic.show_icon(IconNames.YES)
+            if distance2 < 3.1:
+                basic.show_icon(IconNames.HAPPY)
             else:
-                basic.show_icon(IconNames.NO)
+                basic.show_icon(IconNames.SAD)
         elif b_pressed:
             basic.clear_screen()
             pins.digital_write_pin(DigitalPin.P1, 0)
